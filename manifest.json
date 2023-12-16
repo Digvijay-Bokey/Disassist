@@ -2,7 +2,7 @@
     "manifest_version": 3,
     "name": "Disassist",
     "description": "A chrome extension designed to aide people with dyslexia with reading better and easier.",
-    "version": "1.0",
+    "version": "0.1",
     "action": {
       "default_popup": "popup.html"
     },
