@@ -1,0 +1,13 @@
+@font-face {
+    font-family: 'font-bold';
+    src: url('bold.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'font-regular';
+    src: url('regular.woff') format('woff');
+}
+
+body {
+    font-family: 'font-regular', sans-serif;
+}
