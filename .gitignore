@@ -1,0 +1,13 @@
+# VSC Node and Postman project files
+node_modules
+*.log
+*.env
+.vscode/settings.json
+Postman Documentation
+
+# IntelliJ project files
+.idea
+*.iml
+out
+gen
+.DS_Store
