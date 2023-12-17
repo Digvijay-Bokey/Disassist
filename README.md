@@ -38,6 +38,14 @@ We welcome contributions to make Disassist even better! If you're interested in 
 - Thanks to all the contributors who have helped in building Disassist.
 - Special thanks to the dyslexia community for their invaluable feedback and support.
 
+## Prizes
+**Fidelity All In Open Source Hackathon winner for:**
+
+Most creative use for Google Cloud
+
+Best use of generative AI
+
 ---
 
 Disassist - Making the digital world more accessible, one word at a time.
+[Devpost Link](https://devpost.com/software/disassist#updates)
