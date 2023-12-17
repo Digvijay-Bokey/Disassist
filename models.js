@@ -25,7 +25,7 @@ const Preference = mongoose.model("Preference", preferenceSchema);
 module.exports = { Account, Preference };
 
 
-/*
+
 // require mongoose and your models
 const mongoose = require("mongoose");
 const { Account, Preference } = require("./models");
@@ -47,22 +47,10 @@ newAccount.save()
     // Create a Preference for the saved account
     const newPreference = new Preference({
       accountId: account._id,
-      font: "on"
-    });
-     // Create a Preference for the saved account
-    const newPreference = new Preference({
-      accountId: account._id,
-      assist: "on"
-    });
-     // Create a Preference for the saved account
-    const newPreference = new Preference({
-      accountId: account._id,
-      images: "on"
-    });
-     // Create a Preference for the saved account
-    const newPreference = new Preference({
-      accountId: account._id,
-      speech: "on"
+      font: true,
+      assist: true,
+      images: true,
+      speech: true
     });
 
     newPreference.save()
@@ -72,4 +60,3 @@ newAccount.save()
       .catch(error => console.error("Could not save preference: ", error));
   })
   .catch(error => console.error("Could not save account: ", error));
- */
