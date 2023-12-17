@@ -1,4 +1,4 @@
-# Disassist - Dyslexia-Friendly Chrome Extension
+# Disassist 
 
 Disassist is an innovative Chrome extension designed to make the web more accessible for children with dyslexia. By transforming the online reading experience, it empowers dyslexic learners to engage with digital content more comfortably and effectively.
 
