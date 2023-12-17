@@ -17,6 +17,7 @@ $(document).ready(function () {
             padding: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
             z-index: 9999;
+            max-width: 500px;
           }
       `;
 
@@ -41,25 +42,17 @@ chrome.runtime.onMessage.addListener(async function (
   sendResponse
 ) {
   console.log(request);
-  if (request.action === "manipulateText") {
-    await manipulateText();
+  if (request.action === "disassist") {
+    await disAssist();
   }
 });
 
-async function manipulateText() {
+async function disAssist() {
   const selection = window.getSelection();
   const selectedText = selection.toString().trim();
-
-  // Manipulate the selected text
-  //   chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
-  //     chrome.tabs.sendMessage(tabs[0].id, { action: "manipulateText" });
-  //   });
-  const manipulatedText = await OpenAIFetchAPI(selectedText);
-
-  // Create a div for the dialog
-  const dialog = document.createElement("div");
-  dialog.className = "text-dialog";
-  dialog.textContent = "Manipulated Text: " + manipulatedText;
+  const noImage = selectedText.split(" ").length > 2;
+  const loading = document.createElement("div");
+  loading.className = "text-dialog";
 
   // Calculate the position for the dialog
   const range = selection.getRangeAt(0);
@@ -67,7 +60,155 @@ async function manipulateText() {
 
   // Calculate the position relative to the entire document
   const documentRect = document.body.getBoundingClientRect();
-  const dialogTop = rect.top - documentRect.top - dialog.offsetHeight - 10;
+  const dialogTop = rect.top - documentRect.top - loading.offsetHeight - 10;
+
+  loading.style.position = "absolute";
+  loading.style.top = dialogTop + "px";
+  loading.style.left = rect.left + rect.width / 2 - loading.offsetWidth + "px";
+
+  // Append the dialog to the body
+
+  loading.innerHTML = "Loading Smart Text...";
+  document.body.appendChild(loading);
+  // Manipulate the selected text
+  const text = await chrome.runtime.sendMessage({
+    action: "fetchGPT",
+    content: selectedText,
+  });
+  let image;
+  if (!noImage) {
+    loading.innerHTML = "Loading AI Image...";
+    image = await chrome.runtime.sendMessage({
+      action: "genImage",
+      content: selectedText,
+    });
+  }
+  document.body.removeChild(loading);
+  const manipulatedText = text.replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>");
+  // Create a div for the dialog
+  const dialog = document.createElement("div");
+  dialog.className = "text-dialog";
+  dialog.innerHTML =
+    manipulatedText +
+    "<br>" +
+    (noImage
+      ? ""
+      : `<img src="${image}" alt="${selectedText}" width="256" height="256">`);
+
+  dialog.style.position = "absolute";
+  dialog.style.top = dialogTop + "px";
+  dialog.style.left = rect.left + rect.width / 2 - dialog.offsetWidth + "px";
+
+  // Append the dialog to the body
+  document.body.appendChild(dialog);
+
+  // Add a click event listener to remove the dialog on clicks outside of it
+  document.addEventListener("click", handleClickOutside);
+
+  // Function to handle click events
+  function handleClickOutside(event) {
+    if (!dialog.contains(event.target)) {
+      // Click outside the dialog, remove the dialog and remove the event listener
+      document.body.removeChild(dialog);
+      document.removeEventListener("click", handleClickOutside);
+    }
+  }
+}
+
+async function manipulateText() {
+  const selection = window.getSelection();
+  const selectedText = selection.toString().trim();
+
+  const loading = document.createElement("div");
+  loading.className = "text-dialog";
+  loading.innerHTML = "Loading Contents...";
+
+  // Calculate the position for the dialog
+  const range = selection.getRangeAt(0);
+  const rect = range.getBoundingClientRect();
+
+  // Calculate the position relative to the entire document
+  const documentRect = document.body.getBoundingClientRect();
+  const dialogTop = rect.top - documentRect.top - loading.offsetHeight - 10;
+
+  loading.style.position = "absolute";
+  loading.style.top = dialogTop + "px";
+  loading.style.left = rect.left + rect.width / 2 - loading.offsetWidth + "px";
+
+  // Append the dialog to the body
+  document.body.appendChild(loading);
+
+  // Manipulate the selected text
+  const response = await chrome.runtime.sendMessage({
+    action: "fetchGPT",
+    content: selectedText,
+  });
+  document.body.removeChild(loading);
+  console.log(response);
+  const manipulatedText = response.replace(
+    /\*\*(.*?)\*\*/g,
+    "<strong>$1</strong>"
+  );
+  // Create a div for the dialog
+  const dialog = document.createElement("div");
+  dialog.className = "text-dialog";
+  dialog.innerHTML = "Manipulated Text: " + manipulatedText;
+
+  dialog.style.position = "absolute";
+  dialog.style.top = dialogTop + "px";
+  dialog.style.left = rect.left + rect.width / 2 - dialog.offsetWidth + "px";
+
+  // Append the dialog to the body
+  document.body.appendChild(dialog);
+
+  // Add a click event listener to remove the dialog on clicks outside of it
+  document.addEventListener("click", handleClickOutside);
+
+  // Function to handle click events
+  function handleClickOutside(event) {
+    if (!dialog.contains(event.target)) {
+      // Click outside the dialog, remove the dialog and remove the event listener
+      document.body.removeChild(dialog);
+      document.removeEventListener("click", handleClickOutside);
+    }
+  }
+}
+
+async function generateImage() {
+  const selection = window.getSelection();
+  const selectedText = selection.toString().trim();
+
+  const loading = document.createElement("div");
+  loading.className = "text-dialog";
+  loading.innerHTML = "Loading Image...";
+
+  // Calculate the position for the dialog
+  const range = selection.getRangeAt(0);
+  const rect = range.getBoundingClientRect();
+
+  // Calculate the position relative to the entire document
+  const documentRect = document.body.getBoundingClientRect();
+  const dialogTop = rect.top - documentRect.top - loading.offsetHeight - 10;
+
+  loading.style.position = "absolute";
+  loading.style.top = dialogTop + "px";
+  loading.style.left = rect.left + rect.width / 2 - loading.offsetWidth + "px";
+
+  // Append the dialog to the body
+  document.body.appendChild(loading);
+
+  // Manipulate the selected text
+  const response = await chrome.runtime.sendMessage({
+    action: "genImage",
+    content: selectedText,
+  });
+  document.body.removeChild(loading);
+  console.log(response);
+  const image = response;
+  // Create a div for the dialog
+  const dialog = document.createElement("div");
+  dialog.className = "text-dialog";
+  dialog.innerHTML = `<img src="${image}" alt="${selectedText}" width="256" height="256">`;
 
   dialog.style.position = "absolute";
   dialog.style.top = dialogTop + "px";
