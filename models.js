@@ -10,7 +10,10 @@ const accountSchema = new mongoose.Schema({
 s
 const preferenceSchema = new mongoose.Schema({
     accountId: { type: mongoose.Schema.Types.ObjectId, ref: 'Account' },
-    theme: { type: String, default: 'light' },
+    font: { type: Boolean, default: true },
+    assist: { type: Boolean, default: true },
+    images: { type: Boolean, default: true },
+    speech: { type: Boolean, default: true },
 
 });
 
