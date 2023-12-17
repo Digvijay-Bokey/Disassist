@@ -10,5 +10,8 @@ $(document).ready(function () {
 
   // Append style to the head of the current document
   $("head").append("<style>" + fontFace + "</style>");
-  $("body").attr("style", "font-family: 'font-regular', sans-serif !important");
+  $("body").attr(
+    "style",
+    "font-family: 'font-regular', sans-serif !important;"
+  );
 });
