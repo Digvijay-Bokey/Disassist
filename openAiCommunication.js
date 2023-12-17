@@ -35,7 +35,7 @@ function OpenaiFetchAPI(prompt) {
 
 }
 
-function DalleFetchApi() {
+function DalleFetchApi(prompt) {
     console.log("Connecting to OpenAi Dalle")
     var dalleUrl = "https://api.openai.com/v1/images/generations";
     var bearer = 'Bearer ' + openAiKey
@@ -47,7 +47,7 @@ function DalleFetchApi() {
         },
         body: JSON.stringify({
             "model": "dall-e-2",
-            "prompt": "indian cs student",
+            "prompt": prompt,
             "n": 1,
             "size": "256x256"
         })
