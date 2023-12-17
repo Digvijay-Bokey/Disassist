@@ -66,7 +66,7 @@ function DalleFetchApi() {
 
 }
 
-//var dalleUrl = "https://api.openai.com/v1/images/generations";
+
 
 
 
