@@ -44,7 +44,22 @@ newAccount.save()
     // Create a Preference for the saved account
     const newPreference = new Preference({
       accountId: account._id,
-      theme: "dark"
+      font: "on"
+    });
+     // Create a Preference for the saved account
+    const newPreference = new Preference({
+      accountId: account._id,
+      assist: "on"
+    });
+     // Create a Preference for the saved account
+    const newPreference = new Preference({
+      accountId: account._id,
+      images: "on"
+    });
+     // Create a Preference for the saved account
+    const newPreference = new Preference({
+      accountId: account._id,
+      speech: "on"
     });
 
     newPreference.save()
