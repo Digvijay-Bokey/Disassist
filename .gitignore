@@ -11,3 +11,6 @@ Postman Documentation
 out
 gen
 .DS_Store
+
+#api keys
+creds.js
