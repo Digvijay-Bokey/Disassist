@@ -1,25 +1,24 @@
-// require mongoose
 const mongoose = require("mongoose");
 
-// Define the schema for the accounts collection
+
 const accountSchema = new mongoose.Schema({
     username: { type: String, required: true, unique: true },
     password: { type: String, required: true }, // Note: In practice, save a hashed version of the password, not the plain text
     email: { type: String, required: true, unique: true }
 });
 
-// Define the schema for preferences
+s
 const preferenceSchema = new mongoose.Schema({
     accountId: { type: mongoose.Schema.Types.ObjectId, ref: 'Account' },
     theme: { type: String, default: 'light' },
-    // add more preferences as needed
+
 });
 
-// Create models using the schemas
+
 const Account = mongoose.model("Account", accountSchema);
 const Preference = mongoose.model("Preference", preferenceSchema);
 
-// export models
+
 module.exports = { Account, Preference };
 
 
