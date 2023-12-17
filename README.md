@@ -32,13 +32,6 @@ We welcome contributions to make Disassist even better! If you're interested in 
 4. Push to the branch (`git push origin feature-branch`).
 5. Submit a pull request.
 
-## Support
-
-For support, feedback, or queries, please open an issue in the GitHub repository or contact us at [support@disassist.com](mailto:support@disassist.com).
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details.
 
 ## Acknowledgments
 
