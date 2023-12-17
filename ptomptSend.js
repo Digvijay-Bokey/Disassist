@@ -47,9 +47,9 @@ function DalleFetchApi() {
         },
         body: JSON.stringify({
             "model": "dall-e-2",
-            "prompt": "a white siamese cat",
+            "prompt": "indian cs student",
             "n": 1,
-            "size": "256*256"
+            "size": "256x256"
         })
     }).then(response => {
 
@@ -70,4 +70,4 @@ function DalleFetchApi() {
 
 
 
-OpenaiFetchAPI()
+DalleFetchApi();
