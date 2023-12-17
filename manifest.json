@@ -24,7 +24,7 @@
   ],
   "web_accessible_resources": [
     {
-      "resources": ["regular.woff", "bold.woff"],
+      "resources": ["regular.woff", "bold.woff", "uiScript.js"],
       "matches": ["<all_urls>"]
     }
   ]

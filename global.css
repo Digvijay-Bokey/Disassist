@@ -16,6 +16,14 @@ body {
 
 .title {
   text-align: center;
+  letter-spacing: 5px;
+}
+
+.refresh {
+  text-align: center;
+  color: rgb(184, 0, 0);
+  font-size: 12px;
+  letter-spacing: 2px;
 }
 
 .settings-row {

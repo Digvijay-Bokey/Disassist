@@ -1,16 +1,16 @@
 <!DOCTYPE html>
-<html style="width: 200px; height: 300px; border-style: solid">
+<html style="width: 200px; height: 300px">
   <head>
     <title>Disassist</title>
     <link rel="stylesheet" type="text/css" href="global.css" />
   </head>
 
   <body>
-    <h1 class="title">Disassist</h1>
+    <h1 class="title">Dis<span class="title-2">assist</span></h1>
     <div class="settings-row">
       <div class="setting-text">Font</div>
       <label class="switch">
-        <input type="checkbox" />
+        <input type="checkbox" id="font" />
         <span class="slider"></span>
       </label>
     </div>
@@ -18,7 +18,7 @@
     <div class="settings-row">
       <div class="setting-text">AI Read Assist</div>
       <label class="switch">
-        <input type="checkbox" />
+        <input type="checkbox" id="read" />
         <span class="slider"></span>
       </label>
     </div>
@@ -26,7 +26,7 @@
     <div class="settings-row">
       <div class="setting-text">AI Images</div>
       <label class="switch">
-        <input type="checkbox" checked />
+        <input type="checkbox" id="image" />
         <span class="slider"></span>
       </label>
     </div>
@@ -34,11 +34,13 @@
     <div class="settings-row">
       <div class="setting-text">Speech</div>
       <label class="switch">
-        <input type="checkbox" />
+        <input type="checkbox" id="speech" />
         <span class="slider"></span>
       </label>
     </div>
+    <p class="refresh">Refresh page for updates</p>
   </body>
 
   <script src="jquery.min.js" type="text/javascript"></script>
+  <script src="uiScript.js" type="text/javascript"></script>
 </html>
