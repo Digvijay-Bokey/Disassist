@@ -1,0 +1,17 @@
+{
+  "name": "disassist",
+  "version": "1.0.0",
+  "description": "",
+  "main": "demo.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Digvijay-Bokey/Disassist.git"
+  },
+  "private": true,
+  "dependencies": {
+    "openai": "^4.22.1"
+  }
+}
