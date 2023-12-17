@@ -1,11 +1,11 @@
 @font-face {
   font-family: "font-bold";
-  src: url("bold.woff") format("woff");
+  src: url("fonts/bold.woff") format("woff");
 }
 
 @font-face {
   font-family: "font-regular";
-  src: url("regular.woff") format("woff");
+  src: url("fonts/regular.woff") format("woff");
 }
 
 body {
