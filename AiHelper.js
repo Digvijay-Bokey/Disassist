@@ -67,3 +67,6 @@ function DallEFetchAPI(prompt) {
 }
 
 module.exports = { OpenAIFetchAPI, DallEFetchAPI };
+
+
+DallEFetchAPI("drake the rapper as a girl")

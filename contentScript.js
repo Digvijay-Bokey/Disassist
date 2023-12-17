@@ -84,7 +84,7 @@ async function disAssist() {
     });
   }
   document.body.removeChild(loading);
-  const manipulatedText = text.replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>");
+  const manipulatedText = text.replace(/\*\*(.*?)\*\*/g, "<i><b>$1</b></i>");
   // Create a div for the dialog
   const dialog = document.createElement("div");
   dialog.className = "text-dialog";
