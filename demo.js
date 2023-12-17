@@ -14,17 +14,11 @@ function OpenaiFetchAPI() {
             'Content-Type': 'application/json'
         },
         body: JSON.stringify({
-            /*"prompt": "Once upon a time",
-            "max_tokens": 5,
-            "temperature": 1,
-            "top_p": 1,
-            "n": 1,
-            "stream": false,
-            "logprobs": null,
-            "stop": "\n"*/
-            "model": "gpt-3.5-turbo",
-            "messages": [{"role": "user", "content": "Say this is a test!"}],
+            "model": "gpt-4",
+            //enter prompt here:
+            "messages": [{"role": "user", "content": "Take this following text and make it easier to read for dyslexic people by not changing words, but bolding the first word in compound words, such as apple in applesauce, or differentiating commonly confused words, such as bolding pre in prefect and per in perfect. Please do this for any word where it may become more readable. Here is the prompt - "}],
             "temperature": 0.5
+
         })
 
 
@@ -36,7 +30,7 @@ function OpenaiFetchAPI() {
         console.log(data)
         console.log(typeof data)
         console.log(Object.keys(data))
-        console.log(data['choices'][0].text)
+        console.log(data['choices'][0].message)
 
     })
         .catch(error => {
