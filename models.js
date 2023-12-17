@@ -7,7 +7,7 @@ const accountSchema = new mongoose.Schema({
     email: { type: String, required: true, unique: true }
 });
 
-s
+
 const preferenceSchema = new mongoose.Schema({
     accountId: { type: mongoose.Schema.Types.ObjectId, ref: 'Account' },
     font: { type: Boolean, default: true },
