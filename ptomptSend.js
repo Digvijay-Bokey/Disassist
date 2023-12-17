@@ -4,10 +4,10 @@
 const {openAiKey} = require("./creds");
 
 function OpenaiFetchAPI() {
-    console.log("Calling gpt-3.5-turbo")
-    var url = "https://api.openai.com/v1/chat/completions";
+    console.log("Connecting to Open Ai Chat Gpt 4")
+    var chatUrl = "https://api.openai.com/v1/chat/completions";
     var bearer = 'Bearer ' + openAiKey
-    fetch(url, {
+    fetch(chatUrl, {
         method: 'POST',
         headers: {
             'Authorization': bearer,
@@ -20,23 +20,54 @@ function OpenaiFetchAPI() {
             "temperature": 0.5
 
         })
-
-
     }).then(response => {
 
         return response.json()
-
     }).then(data=>{
         console.log(data)
         console.log(typeof data)
         console.log(Object.keys(data))
         console.log(data['choices'][0].message)
-
     })
         .catch(error => {
             console.log('Something bad happened ' + error)
         });
 
 }
+
+function DalleFetchApi() {
+    console.log("Connecting to OpenAi Dalle")
+    var dalleUrl = "https://api.openai.com/v1/images/generations";
+    var bearer = 'Bearer ' + openAiKey
+    fetch(dalleUrl, {
+        method: 'POST',
+        headers: {
+            'Authorization': bearer,
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            "model": "dall-e-2",
+            "prompt": "a white siamese cat",
+            "n": 1,
+            "size": "256*256"
+        })
+    }).then(response => {
+
+        return response.json()
+    }).then(data=>{
+        console.log(data)
+        console.log(typeof data)
+        console.log(Object.keys(data))
+        console.log(data['choices'][0].message)
+    })
+        .catch(error => {
+            console.log('Something bad happened ' + error)
+        });
+
+}
+
+//var dalleUrl = "https://api.openai.com/v1/images/generations";
+
+
 
 OpenaiFetchAPI()
