@@ -3,7 +3,7 @@
 
 const {openAiKey} = require("./creds");
 
-function OpenaiFetchAPI() {
+function OpenaiFetchAPI(prompt) {
     console.log("Connecting to Open Ai Chat Gpt 4")
     var chatUrl = "https://api.openai.com/v1/chat/completions";
     var bearer = 'Bearer ' + openAiKey
@@ -16,7 +16,7 @@ function OpenaiFetchAPI() {
         body: JSON.stringify({
             "model": "gpt-4",
             //enter prompt here:
-            "messages": [{"role": "user", "content": "Take this following text and make it easier to read for dyslexic people by not changing words, but bolding the first word in compound words, such as apple in applesauce, or differentiating commonly confused words, such as bolding pre in prefect and per in perfect. Please do this for any word where it may become more readable. Here is the prompt - "}],
+            "messages": [{"role": "user", "content": "Take this following text and make it easier to read for dyslexic people by not changing words, but bolding the first word in compound words, such as apple in applesauce, or differentiating commonly confused words, such as bolding pre in prefect and per in perfect. Please do this for any word where it may become more readable. Here is the prompt - " + prompt}],
             "temperature": 0.5
 
         })
@@ -69,5 +69,3 @@ function DalleFetchApi() {
 
 
 
-
-DalleFetchApi();
