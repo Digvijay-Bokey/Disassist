@@ -57,7 +57,6 @@ Best use of generative AI
 
 
 ## Devpost
-
 View the project devpost here: [Devpost Link](https://devpost.com/software/disassist#updates)
 ---
 
