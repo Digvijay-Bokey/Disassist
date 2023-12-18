@@ -22,6 +22,16 @@ To install Disassist, follow these simple steps:
 
 Once installed, Disassist will automatically convert text on web pages into a dyslexia-friendly format. You can click on complex words to hear their pronunciation or see AI-generated images for visual aid.
 
+## Creds
+**You will need a creds.js file within your project which follows this format:**
+
+```
+export default {
+    openAiKey: 'Your Open Ai API Key',
+    mongoUrl: 'Your MongoDB Link'
+};
+```
+
 ## Contributing
 
 We welcome contributions to make Disassist even better! If you're interested in contributing, please:
@@ -45,7 +55,11 @@ Most creative use for Google Cloud
 
 Best use of generative AI
 
+
+## Devpost
+
+View the project devpost here: [Devpost Link](https://devpost.com/software/disassist#updates)
 ---
 
 Disassist - Making the digital world more accessible, one word at a time.
-[Devpost Link](https://devpost.com/software/disassist#updates)
+
