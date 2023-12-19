@@ -13,7 +13,6 @@ async function OpenAIFetchAPI(prompt) {
       },
       body: JSON.stringify({
         model: "gpt-4",
-        //enter prompt here:
         messages: [
           {
             role: "user",
