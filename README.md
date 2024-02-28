@@ -14,8 +14,8 @@ Disassist is an innovative Chrome extension designed to make the web more access
 
 To install Disassist, follow these simple steps:
 
-1. Download the extension from the Chrome Web Store or [disassist website](https://www.disassist.com). These are both coming soon, right now you can fork the repo, add your api keys, and open within Chrome's extension manager.
-2. Add it to your Chrome browser.
+1. Fork the repo, and add your api keys utilizing the creds template below.
+2. Open within Chrome's extension manager.
 3. Enable the extension and customize settings as per your preference.
 
 ## Usage
